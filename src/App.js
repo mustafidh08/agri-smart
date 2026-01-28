@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Leaf, Zap, Shield, TrendingUp, Droplets, Activity, Users, ChevronDown, Menu, X, MessageSquare, Mail, Github, Sun, Moon, Code, Cpu, LineChart, Wrench, BookOpen, Sparkles } from "lucide-react";
+import { Leaf, Zap, Shield, TrendingUp, Droplets, Activity, Users, ChevronDown, Menu, X, MessageSquare, Mail, Github, Sun, Moon} from "lucide-react";
 
 export default function AgriSmartWebsite() {
   const [scrollY, setScrollY] = useState(0);
