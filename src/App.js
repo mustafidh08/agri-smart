@@ -67,11 +67,10 @@ function App() {
     { name: "ESP32", category: "Mikrokontroler" },
     { name: "Sensor pH", category: "HH-828" },
     { name: "Sensor EC", category: "TDS V1.0" },
-    { name: "Ultrasonic", category: "HC-SR04" },
+    { name: "Kran Otomatis", category: "Pengisi Air" },
     { name: "DHT22", category: "Suhu & Kelembapan" },
     { name: "Pompa Peristaltik", category: "Dosing Otomatis" },
-    { name: "Solenoid Valve", category: "Kontrol Air" },
-    { name: "Bot Telegram", category: "Integrasi IoT" },
+    { name: "Bot Telegram", category: "Kontrol Hidroponik" },
   ];
 
   const stats = [
@@ -82,12 +81,12 @@ function App() {
   ];
 
   const team = [
-    { name: "Ahmad Rizki", role: "Hardware Engineer", icon: <Cpu className="w-6 h-6" />, desc: "Merancang & merakit sistem elektronik" },
-    { name: "Fatimah Zahra", role: "Software Developer", icon: <Code className="w-6 h-6" />, desc: "Mengembangkan firmware & dashboard" },
-    { name: "Muhammad Faiz", role: "AI/ML Specialist", icon: <Sparkles className="w-6 h-6" />, desc: "Membangun sistem rekomendasi AI" },
-    { name: "Siti Aisyah", role: "Data Analyst", icon: <LineChart className="w-6 h-6" />, desc: "Menganalisis data sensor & performa" },
-    { name: "Yusuf Ibrahim", role: "System Integrator", icon: <Wrench className="w-6 h-6" />, desc: "Integrasi hardware & software" },
-    { name: "Khadijah Amira", role: "Documentation Lead", icon: <BookOpen className="w-6 h-6" />, desc: "Menyusun panduan & dokumentasi" },
+    { name: "Muhammad Azzam Mustafidh", role: "Project Leader", icon: <Cpu className="w-6 h-6" />, desc: "Memimpin pengembangan proyek Agri Smart" },
+    { name: "Imam Daffa", role: "IoT Engineer", icon: <Code className="w-6 h-6" />, desc: "Mengembangkan hardware & software" },
+    { name: "Ihsan Aviandy", role: "Documentation", icon: <Sparkles className="w-6 h-6" />, desc: "Mendokumentasikan perjalanan TDA & projek" },
+    { name: "Rifat Zaidan", role: "Programmer Assistant", icon: <LineChart className="w-6 h-6" />, desc: "Membantu project leader & IoT engineer" },
+    { name: "Reinevi Abil", role: "Designer", icon: <Wrench className="w-6 h-6" />, desc: "Membuat kebutuhan desain" },
+    { name: "Muhammad Dzulfiqar", role: "Logistic", icon: <BookOpen className="w-6 h-6" />, desc: "Bertanggung jawab atas kebutuhan logistik" },
   ];
 
   return (
@@ -96,7 +95,7 @@ function App() {
         background: theme.bg,
         color: theme.text,
         fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-        letterSpacing: "-0.02em",
+        letterSpacing: "-0.05em",
         transition: "background 0.3s ease, color 0.3s ease",
       }}
     >
