@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Leaf, Zap, Shield, TrendingUp, Droplets, Activity, Users, ChevronDown, Menu, X, MessageSquare, Mail, Github, Sun, Moon, Code, Cpu, LineChart, Wrench, BookOpen, Sparkles } from "lucide-react";
+import { Leaf, Zap, Shield, TrendingUp, Droplets, Activity, Users, ChevronDown, Menu, X, MessageSquare, Mail, Github, Sun, Moon } from "lucide-react";
 
-function App() {
+export default function AgriSmartWebsite() {
   const [scrollY, setScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState("beranda");
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
@@ -34,32 +34,32 @@ function App() {
     {
       icon: <Activity className="w-8 h-8" />,
       title: "Monitoring Real-Time",
-      desc: "Pantau pH, EC, suhu, dan level air secara langsung setiap detik, 24 jam nonstop",
+      desc: "Pantau pH, EC, suhu, dan level air secara langsung setiap detik dengan sistem yang amanah dan teliti",
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Analisis AI Cerdas",
-      desc: "Kecerdasan buatan menganalisis data dan kasih rekomendasi yang gampang dipahami",
+      desc: "Memanfaatkan teknologi kecerdasan buatan sebagai alat bantu dalam mengambil keputusan terbaik",
     },
     {
       icon: <Shield className="w-8 h-8" />,
-      title: "Kontrol Manual Tetap Ada",
-      desc: "Sistem semi-otomatis dengan persetujuan pengguna sebelum mengambil tindakan",
+      title: "Kontrol Penuh di Tangan",
+      desc: "Sistem semi-otomatis yang menempatkan manusia sebagai pengambil keputusan utama",
     },
     {
       icon: <Droplets className="w-8 h-8" />,
-      title: "Dosing Otomatis Presisi",
-      desc: "Pemberian nutrisi dan air otomatis dengan tingkat akurasi tinggi",
+      title: "Dosing Presisi",
+      desc: "Pemberian nutrisi dan air yang efisien, mencegah pemborosan sumber daya",
     },
     {
       icon: <TrendingUp className="w-8 h-8" />,
-      title: "Analitik Data Lengkap",
-      desc: "Visualisasi data komprehensif untuk tracking performa tanaman kamu",
+      title: "Analitik Lengkap",
+      desc: "Visualisasi data komprehensif untuk evaluasi dan perbaikan berkelanjutan",
     },
     {
       icon: <Users className="w-8 h-8" />,
       title: "Mudah Digunakan",
-      desc: "Interface intuitif dan user-friendly, cocok untuk pemula hingga profesional",
+      desc: "Interface yang ramah untuk semua kalangan, dari pemula hingga ahli",
     },
   ];
 
@@ -81,12 +81,42 @@ function App() {
   ];
 
   const team = [
-    { name: "M. Azzam Mustafidh", role: "Project Leader", icon: <Cpu className="w-6 h-6" />, desc: "Memimpin pengembangan proyek Agri Smart" },
-    { name: "Imam Daffa", role: "IoT Engineer", icon: <Code className="w-6 h-6" />, desc: "Mengembangkan hardware & software" },
-    { name: "Ihsan Aviandy", role: "Documentation", icon: <Sparkles className="w-6 h-6" />, desc: "Mendokumentasikan perjalanan TDA & projek" },
-    { name: "Rifat Zaidan", role: "Programmer Assistant", icon: <LineChart className="w-6 h-6" />, desc: "Membantu project leader & IoT engineer" },
-    { name: "Reinevi Abil", role: "Designer", icon: <Wrench className="w-6 h-6" />, desc: "Membuat kebutuhan desain" },
-    { name: "Muhammad Dzulfiqar", role: "Logistic", icon: <BookOpen className="w-6 h-6" />, desc: "Bertanggung jawab atas kebutuhan logistik" },
+    {
+      name: "M. Azzam Mustafidh",
+      role: "Project Leader",
+      initial: "AM",
+      desc: "Memimpin pengembangan proyek Agri Smart",
+    },
+    {
+      name: "Imam Daffa",
+      role: "IoT Engineer",
+      initial: "ID",
+      desc: "Mengembangkan hardware & software",
+    },
+    {
+      name: "Ihsan Aviandy",
+      role: "Documentation",
+      initial: "IA",
+      desc: "Mendokumentasikan perjalanan TDA & projek",
+    },
+    {
+      name: "Rifat Zaidan",
+      role: "Programmer Assistant",
+      initial: "RZ",
+      desc: "Membantu project leader & IoT engineer",
+    },
+    {
+      name: "Reinevi Abil",
+      role: "Designer",
+      initial: "RA",
+      desc: "Membuat kebutuhan desain",
+    },
+    {
+      name: "Muhammad Dzulfiqar",
+      role: "Logistic",
+      initial: "MD",
+      desc: "Bertanggung jawab atas kebutuhan logistik",
+    },
   ];
 
   return (
@@ -320,7 +350,6 @@ function App() {
           overflow: "hidden",
         }}
       >
-        {/* Animated Background */}
         <div style={{ position: "absolute", inset: 0, overflow: "hidden", opacity: 0.6 }}>
           <div
             style={{
@@ -360,8 +389,7 @@ function App() {
             transform: `translateY(${scrollY * 0.3}px)`,
           }}
         >
-          {/* Logo */}
-          <div style={{ marginBottom: "32px", display: "flex", justifyContent: "center" }}>
+          <div className="animate-scaleIn" style={{ marginBottom: "32px", display: "flex", justifyContent: "center" }}>
             <div style={{ position: "relative" }}>
               <div
                 style={{
@@ -392,6 +420,7 @@ function App() {
           </div>
 
           <h1
+            className="animate-fadeInUp"
             style={{
               fontSize: "clamp(36px, 8vw, 56px)",
               fontWeight: 800,
@@ -399,25 +428,44 @@ function App() {
               lineHeight: 1.2,
             }}
           >
-            Pertanian <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Masa Depan</span>
+            Pertanian <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Berkah</span>
             <br />
-            Dimulai dari Sini
+            dengan Teknologi Amanah
           </h1>
 
           <p
+            className="animate-fadeInUp stagger-1"
             style={{
               fontSize: "clamp(18px, 3vw, 24px)",
               color: theme.textMuted,
-              marginBottom: "48px",
+              marginBottom: "24px",
               maxWidth: "800px",
-              margin: "0 auto 48px",
+              margin: "0 auto 24px",
               lineHeight: 1.6,
             }}
           >
-            Sistem hidroponik pintar berbasis IoT & AI yang mengubah cara bertani dengan monitoring real-time, analisis cerdas, dan otomasi presisi tinggi.
+            Sistem hidroponik pintar yang menggabungkan teknologi IoT & AI dengan nilai-nilai Islam untuk mengelola sumber daya dengan bijaksana dan meningkatkan ketahanan pangan umat.
           </p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "center" }}>
+          <div
+            className="animate-fadeInUp stagger-2"
+            style={{
+              padding: "16px 24px",
+              background: darkMode ? "rgba(16, 185, 129, 0.1)" : "rgba(16, 185, 129, 0.05)",
+              border: `1px solid ${theme.gradientFrom}40`,
+              borderRadius: "16px",
+              maxWidth: "700px",
+              margin: "0 auto 48px",
+              fontSize: "14px",
+              fontStyle: "italic",
+              color: theme.textMuted,
+            }}
+          >
+            "Dan Dialah yang menurunkan air dari langit, lalu Kami tumbuhkan dengan air itu segala macam tumbuh-tumbuhan..." <br />
+            <span style={{ color: theme.gradientFrom, fontWeight: 600 }}>— QS. Al-An'am: 99</span>
+          </div>
+
+          <div className="animate-fadeInUp stagger-3" style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "center" }}>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
               <button
                 onClick={() => scrollToSection("tentang")}
@@ -468,7 +516,6 @@ function App() {
             </div>
           </div>
 
-          {/* Scroll Indicator - FIXED */}
           <div
             style={{
               position: "absolute",
@@ -484,10 +531,10 @@ function App() {
       </section>
 
       {/* Stats Section */}
-      <section style={{ padding: "80px 24px", borderTop: `1px solid ${theme.border}`, borderBottom: `1px solid ${theme.border}` }}>
+      <section className="animate-fadeIn" style={{ padding: "80px 24px", borderTop: `1px solid ${theme.border}`, borderBottom: `1px solid ${theme.border}` }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "32px" }}>
           {stats.map((stat, i) => (
-            <div key={i} style={{ textAlign: "center" }}>
+            <div key={i} className={`animate-scaleIn stagger-${i + 1}`} style={{ textAlign: "center" }}>
               <div
                 style={{
                   fontSize: "clamp(36px, 6vw, 48px)",
@@ -507,10 +554,10 @@ function App() {
       </section>
 
       {/* About Section */}
-      <section id="tentang" style={{ padding: "120px 24px" }}>
+      <section id="tentang" className="animate-fadeIn" style={{ padding: "120px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "64px", alignItems: "center" }}>
-            <div>
+            <div className="animate-slideInLeft">
               <div
                 style={{
                   display: "inline-block",
@@ -524,15 +571,21 @@ function App() {
                   marginBottom: "24px",
                 }}
               >
-                Masalah yang Kami Selesaikan
+                Ikhtiar Menuju Ketahanan Pangan
               </div>
-              <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "24px", lineHeight: 1.2 }}>Pertanian Modern untuk Ketahanan Pangan</h2>
+              <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "24px", lineHeight: 1.2 }}>Teknologi sebagai Amanah untuk Keberkahan Pangan</h2>
               <p style={{ color: theme.textMuted, fontSize: "18px", lineHeight: 1.6, marginBottom: "32px" }}>
-                Di tengah tantangan gagal panen, human error, dan krisis pangan global, Agri-Smart hadir sebagai solusi berbasis teknologi yang membantu petani mengelola hidroponik dengan lebih efisien dan presisi.
+                Di tengah tantangan gagal panen dan krisis pangan global, Agri-Smart hadir sebagai ikhtiar berbasis teknologi yang membantu mengelola hidroponik dengan prinsip efisiensi, kehati-hatian, dan tanggung jawab atas sumber daya
+                yang Allah SWT amanahkan.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {["Mengurangi human error hingga mendekati 0%", "Hemat air & nutrisi hingga 50%", "Monitoring real-time 24/7 dari mana saja", "AI memberikan rekomendasi yang mudah dipahami"].map((item, i) => (
-                  <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                {[
+                  "Mengurangi kesalahan manusia hingga mendekati 0%",
+                  "Efisiensi air & nutrisi hingga 50% sesuai prinsip tidak berlebihan",
+                  "Monitoring amanah 24/7 dengan sistem yang terpercaya",
+                  "AI sebagai alat bantu, manusia tetap pengambil keputusan",
+                ].map((item, i) => (
+                  <div key={i} className={`animate-slideInLeft stagger-${i + 1}`} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div
                       style={{
                         width: "24px",
@@ -553,7 +606,7 @@ function App() {
               </div>
             </div>
 
-            <div style={{ position: "relative" }}>
+            <div className="animate-slideInRight" style={{ position: "relative" }}>
               <div
                 style={{
                   position: "absolute",
@@ -611,7 +664,7 @@ function App() {
       </section>
 
       {/* Features Section */}
-      <section id="fitur" style={{ padding: "120px 24px", background: darkMode ? "linear-gradient(180deg, #0A0E14, #10141D)" : "linear-gradient(180deg, #FFFFFF, #F8FAFB)" }}>
+      <section id="fitur" className="animate-fadeIn" style={{ padding: "120px 24px", background: darkMode ? "linear-gradient(180deg, #0A0E14, #10141D)" : "linear-gradient(180deg, #FFFFFF, #F8FAFB)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <div
@@ -630,16 +683,19 @@ function App() {
               Fitur Unggulan
             </div>
             <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
-              Teknologi yang Bikin <br />
-              <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Perbedaan Nyata</span>
+              Teknologi yang Membawa <br />
+              <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Manfaat Nyata</span>
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", justifyItems: "center" }}>
             {features.map((feature, i) => (
               <div
                 key={i}
+                className={`animate-scaleIn stagger-${(i % 3) + 1}`}
                 style={{
+                  width: "100%",
+                  maxWidth: "380px",
                   position: "relative",
                   background: theme.cardBg,
                   backdropFilter: "blur(40px)",
@@ -652,7 +708,7 @@ function App() {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = darkMode ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.02)";
                   e.currentTarget.style.borderColor = `${theme.gradientFrom}80`;
-                  e.currentTarget.style.transform = "translateY(-4px)";
+                  e.currentTarget.style.transform = "translateY(-8px)";
                   e.currentTarget.style.boxShadow = `0 20px 60px ${theme.gradientFrom}30`;
                 }}
                 onMouseLeave={(e) => {
@@ -687,7 +743,7 @@ function App() {
       </section>
 
       {/* Technology Section */}
-      <section id="teknologi" style={{ padding: "120px 24px" }}>
+      <section id="teknologi" className="animate-fadeIn" style={{ padding: "120px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <div
@@ -708,14 +764,17 @@ function App() {
             <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
               Komponen <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Berkualitas Tinggi</span>
             </h2>
-            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Menggunakan sensor industrial-grade dan mikrokontroler terpercaya untuk hasil yang akurat dan konsisten.</p>
+            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Menggunakan komponen terpercaya untuk hasil yang akurat dan konsisten</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "16px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "16px", justifyItems: "center" }}>
             {technologies.map((tech, i) => (
               <div
                 key={i}
+                className={`animate-scaleIn stagger-${(i % 4) + 1}`}
                 style={{
+                  width: "100%",
+                  maxWidth: "200px",
                   background: theme.cardBg,
                   backdropFilter: "blur(40px)",
                   border: `1px solid ${theme.border}`,
@@ -742,7 +801,7 @@ function App() {
       </section>
 
       {/* How It Works */}
-      <section style={{ padding: "120px 24px", background: darkMode ? "linear-gradient(180deg, #0A0E14, #10141D)" : "linear-gradient(180deg, #FFFFFF, #F8FAFB)" }}>
+      <section className="animate-fadeIn" style={{ padding: "120px 24px", background: darkMode ? "linear-gradient(180deg, #0A0E14, #10141D)" : "linear-gradient(180deg, #FFFFFF, #F8FAFB)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
@@ -752,14 +811,14 @@ function App() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
             {[
-              { step: "01", title: "Sensor Membaca Data", desc: "pH, EC, suhu, dan level air dibaca real-time setiap detik tanpa henti" },
-              { step: "02", title: "ESP32 Mengolah", desc: "Data dikirim ke ESP32 dan diproses dengan algoritma filtering canggih" },
-              { step: "03", title: "Dashboard Menampilkan", desc: "Data divisualisasikan dalam grafik dan statistik yang gampang dibaca" },
-              { step: "04", title: "AI Menganalisis", desc: "Kecerdasan buatan mendeteksi masalah dan bikin rekomendasi akurat" },
-              { step: "05", title: "User Menyetujui", desc: "Sistem human-in-the-loop minta persetujuan sebelum bertindak" },
-              { step: "06", title: "Aktuator Bekerja", desc: "Pompa dan valve menjalankan dosing otomatis sesuai rekomendasi" },
+              { step: "01", title: "Sensor Membaca Data", desc: "pH, EC, suhu, dan level air dipantau dengan teliti setiap detik" },
+              { step: "02", title: "ESP32 Mengolah", desc: "Data diproses dengan algoritma yang cermat dan akurat" },
+              { step: "03", title: "Dashboard Menampilkan", desc: "Visualisasi data yang jelas dan mudah dipahami" },
+              { step: "04", title: "AI Menganalisis", desc: "Sistem AI memberikan rekomendasi berdasarkan data" },
+              { step: "05", title: "User Memutuskan", desc: "Manusia tetap sebagai pengambil keputusan akhir" },
+              { step: "06", title: "Aktuator Bekerja", desc: "Sistem menjalankan perintah dengan presisi tinggi" },
             ].map((item, i) => (
-              <div key={i} style={{ display: "flex", gap: "24px", alignItems: "flex-start" }}>
+              <div key={i} className={`animate-slideInLeft stagger-${(i % 3) + 1}`} style={{ display: "flex", gap: "24px", alignItems: "flex-start" }}>
                 <div
                   style={{
                     flexShrink: 0,
@@ -800,7 +859,7 @@ function App() {
       </section>
 
       {/* Team Section */}
-      <section id="tim" style={{ padding: "120px 24px" }}>
+      <section id="tim" className="animate-fadeIn" style={{ padding: "120px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <div
@@ -821,14 +880,17 @@ function App() {
             <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
               Kelompok <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Al-Jazari</span>
             </h2>
-            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "700px", margin: "0 auto" }}>Dikembangkan oleh tim TDA (Tadabbur Dream Adventure) dari Sekolah Impian sebagai kontribusi nyata untuk ketahanan pangan nasional.</p>
+            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "700px", margin: "0 auto" }}>Tim TDA (Tadabbur Dream Adventure) dari Sekolah Impian yang berikhtiar untuk ketahanan pangan</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginBottom: "64px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginBottom: "64px", justifyItems: "center" }}>
             {team.map((member, i) => (
               <div
                 key={i}
+                className={`animate-scaleIn stagger-${(i % 3) + 1}`}
                 style={{
+                  width: "100%",
+                  maxWidth: "320px",
                   background: theme.cardBg,
                   backdropFilter: "blur(40px)",
                   border: `1px solid ${theme.border}`,
@@ -852,17 +914,20 @@ function App() {
                   style={{
                     width: "80px",
                     height: "80px",
-                    background: `linear-gradient(135deg, ${theme.gradientFrom}20, ${theme.gradientTo}20)`,
+                    background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`,
                     borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     margin: "0 auto 20px",
-                    color: theme.gradientFrom,
+                    color: "white",
+                    fontSize: "24px",
+                    fontWeight: 700,
                     border: `2px solid ${theme.gradientFrom}40`,
+                    boxShadow: `0 8px 24px ${theme.gradientFrom}40`,
                   }}
                 >
-                  {member.icon}
+                  {member.initial}
                 </div>
                 <h3 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "4px" }}>{member.name}</h3>
                 <div
@@ -914,7 +979,7 @@ function App() {
               </div>
 
               <p style={{ color: theme.textMuted, lineHeight: 1.6, fontSize: "15px" }}>
-                Dengan bimbingan Ustadz Aulia dan dukungan dari Habibi Garden, STEI ITB, dan PT SEI, kami mengembangkan Agri-Smart sebagai upaya nyata menuju pertanian yang lebih cerdas dan berkelanjutan.
+                Dengan bimbingan Ustadz Aulia dan dukungan dari Habibi Garden, STEI ITB, serta PT SEI, kami berikhtiar mengembangkan Agri-Smart sebagai kontribusi nyata menuju pertanian yang lebih berkah dan berkelanjutan.
               </p>
 
               <div style={{ paddingTop: "24px", borderTop: `1px solid ${theme.border}` }}>
@@ -929,7 +994,7 @@ function App() {
       </section>
 
       {/* CTA Section */}
-      <section style={{ padding: "120px 24px", position: "relative", overflow: "hidden" }}>
+      <section className="animate-fadeIn" style={{ padding: "120px 24px", position: "relative", overflow: "hidden" }}>
         <div
           style={{
             position: "absolute",
@@ -941,14 +1006,15 @@ function App() {
 
         <div style={{ position: "relative", maxWidth: "1000px", margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: 800, marginBottom: "24px" }}>
-            Yuk, Bareng-Bareng Bangun <br />
-            <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Pertanian Masa Depan</span>
+            Mari Bersama Membangun <br />
+            <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Pertanian yang Berkah</span>
           </h2>
           <p style={{ fontSize: "20px", color: theme.textMuted, marginBottom: "48px", maxWidth: "700px", margin: "0 auto 48px" }}>
-            Gabung dalam transformasi pertanian Indonesia menuju sistem yang lebih efisien, presisi, dan berkelanjutan.
+            Bergabunglah dalam ikhtiar transformasi pertanian Indonesia menuju sistem yang lebih efisien, amanah, dan berkelanjutan.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
             <button
+              onClick={() => window.open("https://t.me/yourusername", "_blank")}
               style={{
                 padding: "16px 32px",
                 background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`,
@@ -981,6 +1047,7 @@ function App() {
               />
             </button>
             <button
+              onClick={() => window.open("#", "_blank")}
               style={{
                 padding: "16px 32px",
                 background: theme.cardBg,
@@ -1027,10 +1094,11 @@ function App() {
               </div>
             </div>
 
-            <div style={{ fontSize: "14px", color: theme.textMuted }}>© 2024 Agri-Smart. Dikembangkan dengan ❤️ untuk ketahanan pangan Indonesia.</div>
+            <div style={{ fontSize: "14px", color: theme.textMuted }}>© 2024 Agri-Smart. Dikembangkan dengan penuh amanah untuk ketahanan pangan Indonesia.</div>
 
             <div style={{ display: "flex", gap: "16px" }}>
               <button
+                onClick={() => window.open("https://github.com/mustafidh08/agri-smart", "_blank")}
                 style={{
                   width: "40px",
                   height: "40px",
@@ -1042,11 +1110,23 @@ function App() {
                   justifyContent: "center",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
+                  color: theme.text,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = theme.gradientFrom;
+                  e.currentTarget.style.borderColor = theme.gradientFrom;
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = theme.cardBg;
+                  e.currentTarget.style.borderColor = theme.border;
+                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
                 <Github style={{ width: "20px", height: "20px" }} />
               </button>
               <button
+                onClick={() => (window.location.href = "mailto:azzammustafidh@gmail.com")}
                 style={{
                   width: "40px",
                   height: "40px",
@@ -1058,6 +1138,17 @@ function App() {
                   justifyContent: "center",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
+                  color: theme.text,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = theme.gradientFrom;
+                  e.currentTarget.style.borderColor = theme.gradientFrom;
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = theme.cardBg;
+                  e.currentTarget.style.borderColor = theme.border;
+                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
                 <Mail style={{ width: "20px", height: "20px" }} />
@@ -1069,5 +1160,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
