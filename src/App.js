@@ -312,7 +312,7 @@ function App() {
         id="beranda"
         style={{
           position: "relative",
-          minHeight: "100vh",
+          minHeight: "80vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -320,7 +320,6 @@ function App() {
           overflow: "hidden",
         }}
       >
-        {/* Animated Background */}
         <div style={{ position: "absolute", inset: 0, overflow: "hidden", opacity: 0.6 }}>
           <div
             style={{
@@ -360,8 +359,7 @@ function App() {
             transform: `translateY(${scrollY * 0.3}px)`,
           }}
         >
-          {/* Logo */}
-          <div style={{ marginBottom: "32px", display: "flex", justifyContent: "center" }}>
+          <div className="animate-scaleIn" style={{ marginBottom: "32px", display: "flex", justifyContent: "center" }}>
             <div style={{ position: "relative" }}>
               <div
                 style={{
@@ -392,6 +390,7 @@ function App() {
           </div>
 
           <h1
+            className="animate-fadeInUp"
             style={{
               fontSize: "clamp(36px, 8vw, 56px)",
               fontWeight: 800,
@@ -399,25 +398,44 @@ function App() {
               lineHeight: 1.2,
             }}
           >
-            Pertanian <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Masa Depan</span>
+            Pertanian <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Berkah</span>
             <br />
-            Dimulai dari Sini
+            dengan Teknologi <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Amanah</span>
           </h1>
 
           <p
+            className="animate-fadeInUp stagger-1"
             style={{
               fontSize: "clamp(18px, 3vw, 24px)",
               color: theme.textMuted,
-              marginBottom: "48px",
+              marginBottom: "24px",
               maxWidth: "800px",
-              margin: "0 auto 48px",
+              margin: "0 auto 24px",
               lineHeight: 1.6,
             }}
           >
-            Sistem hidroponik pintar berbasis IoT & AI yang mengubah cara bertani dengan monitoring real-time, analisis cerdas, dan otomasi presisi tinggi.
+            Sistem hidroponik pintar yang menggabungkan teknologi IoT & AI dengan nilai-nilai Islam untuk mengelola sumber daya dengan bijak dan meningkatkan ketahanan pangan umat.
           </p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "center" }}>
+          <div
+            className="animate-fadeInUp stagger-2"
+            style={{
+              padding: "16px 24px",
+              background: darkMode ? "rgba(16, 185, 129, 0.1)" : "rgba(16, 185, 129, 0.05)",
+              border: `1px solid ${theme.gradientFrom}40`,
+              borderRadius: "16px",
+              maxWidth: "700px",
+              margin: "0 auto 48px",
+              fontSize: "14px",
+              fontStyle: "italic",
+              color: theme.textMuted,
+            }}
+          >
+            "Dan Dialah yang menurunkan air dari langit, lalu Kami tumbuhkan dengan air itu segala macam tumbuh-tumbuhan..." <br />
+            <span style={{ color: theme.gradientFrom, fontWeight: 600 }}>— QS. Al-An'am: 99</span>
+          </div>
+
+          <div className="animate-fadeInUp stagger-3" style={{ display: "flex", flexDirection: "column", gap: "16px", alignItems: "center" }}>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
               <button
                 onClick={() => scrollToSection("tentang")}
@@ -468,7 +486,6 @@ function App() {
             </div>
           </div>
 
-          {/* Scroll Indicator - FIXED */}
           <div
             style={{
               position: "absolute",
@@ -945,10 +962,11 @@ function App() {
             <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Pertanian Masa Depan</span>
           </h2>
           <p style={{ fontSize: "20px", color: theme.textMuted, marginBottom: "48px", maxWidth: "700px", margin: "0 auto 48px" }}>
-            Gabung dalam transformasi pertanian Indonesia menuju sistem yang lebih efisien, presisi, dan berkelanjutan.
+            Bergabunglah dalam ikhtiar transformasi pertanian Indonesia menuju sistem yang lebih efisien, amanah, dan berkelanjutan.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
             <button
+              onClick={() => window.open("https://wa.me/6285250860859", "_blank")}
               style={{
                 padding: "16px 32px",
                 background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`,
@@ -981,6 +999,7 @@ function App() {
               />
             </button>
             <button
+              onClick={() => window.open("#", "_blank")}
               style={{
                 padding: "16px 32px",
                 background: theme.cardBg,
@@ -1027,10 +1046,11 @@ function App() {
               </div>
             </div>
 
-            <div style={{ fontSize: "14px", color: theme.textMuted }}>© 2024 Agri-Smart. Dikembangkan dengan ❤️ untuk ketahanan pangan Indonesia.</div>
+            <div style={{ fontSize: "14px", color: theme.textMuted }}>© 2024 Agri-Smart. Dikembangkan dengan penuh amanah untuk ketahanan pangan Indonesia.</div>
 
             <div style={{ display: "flex", gap: "16px" }}>
               <button
+                onClick={() => window.open("https://github.com/mustafidh08/agri-smart", "_blank")}
                 style={{
                   width: "40px",
                   height: "40px",
@@ -1042,11 +1062,23 @@ function App() {
                   justifyContent: "center",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
+                  color: theme.text,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = theme.gradientFrom;
+                  e.currentTarget.style.borderColor = theme.gradientFrom;
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = theme.cardBg;
+                  e.currentTarget.style.borderColor = theme.border;
+                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
                 <Github style={{ width: "20px", height: "20px" }} />
               </button>
               <button
+                onClick={() => (window.location.href = "mailto:azzammustafidh@gmail.com")}
                 style={{
                   width: "40px",
                   height: "40px",
@@ -1058,6 +1090,17 @@ function App() {
                   justifyContent: "center",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
+                  color: theme.text,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = theme.gradientFrom;
+                  e.currentTarget.style.borderColor = theme.gradientFrom;
+                  e.currentTarget.style.transform = "translateY(-4px)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = theme.cardBg;
+                  e.currentTarget.style.borderColor = theme.border;
+                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
                 <Mail style={{ width: "20px", height: "20px" }} />
