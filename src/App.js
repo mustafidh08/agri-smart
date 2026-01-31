@@ -32,52 +32,51 @@ function App() {
 
   const features = [
     {
+      icon: <Cpu className="w-8 h-8" />,
+      title: "AI-Powered Analytics",
+      desc: "Kecerdasan buatan menganalisis data sensor dan memberikan rekomendasi optimasi pertumbuhan tanaman secara real-time",
+    },
+    {
       icon: <Activity className="w-8 h-8" />,
-      title: "Monitoring Real-Time",
-      desc: "Pantau pH, EC, suhu, dan level air secara langsung setiap detik, 24 jam nonstop",
+      title: "IoT Sensor Network",
+      desc: "Jaringan sensor IoT memantau pH, EC, suhu, dan kelembapan dengan akurasi tinggi 24/7",
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Analisis AI Cerdas",
-      desc: "Kecerdasan buatan menganalisis data dan kasih rekomendasi yang gampang dipahami",
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Kontrol Manual Tetap Ada",
-      desc: "Sistem semi-otomatis dengan persetujuan pengguna sebelum mengambil tindakan",
+      title: "Solar-Powered System",
+      desc: "Sistem bertenaga energi matahari untuk operasional yang ramah lingkungan dan dapat mengurangi biaya listrik",
     },
     {
       icon: <Droplets className="w-8 h-8" />,
-      title: "Dosing Otomatis Presisi",
-      desc: "Pemberian nutrisi dan air otomatis dengan tingkat akurasi tinggi",
+      title: "Smart Dosing Automation",
+      desc: "Pemberian nutrisi dan air otomatis berbasis AI dengan presisi tinggi, menghemat penggunaan air",
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "Analitik Data Lengkap",
-      desc: "Visualisasi data komprehensif untuk tracking performa tanaman kamu",
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "Mudah Digunakan",
-      desc: "Interface intuitif dan user-friendly, cocok untuk pemula hingga profesional",
+      icon: <Shield className="w-8 h-8" />,
+      title: "Remote Monitoring & Control",
+      desc: "Kontrol dan monitor sistem dari mana saja via smartphone",
     },
   ];
 
   const technologies = [
-    { name: "ESP32", category: "Mikrokontroler" },
-    { name: "Sensor pH", category: "HH-828" },
-    { name: "Sensor EC", category: "TDS V1.0" },
-    { name: "Kran Otomatis", category: "Pengisi Air" },
-    { name: "DHT22", category: "Suhu & Kelembapan" },
-    { name: "Pompa Peristaltik", category: "Dosing Otomatis" },
-    { name: "Bot Telegram", category: "Kontrol Hidroponik" },
+    { name: "Python", category: "AI/Machine Learning" },
+    { name: "ESP32", category: "IoT Microcontroller" },
+    { name: "Solar Panel", category: "Renewable Energy" },
+    { name: "Sensor pH", category: "IoT Sensor (HH-828)" },
+    { name: "Sensor EC/TDS", category: "IoT Sensor (V1.0)" },
+    { name: "DHT22", category: "IoT Sensor (Suhu)" },
+    { name: "MPPT Charge Controller", category: "Solar Management" },
+    { name: "Battery 12V 9A", category: "Energy Storage" },
+    { name: "AI Prediction Model", category: "Machine Learning" },
+    { name: "Pompa Peristaltik", category: "Smart Dosing" },
+    { name: "Bot Telegram", category: "Remote Control" },
   ];
 
   const stats = [
-    { value: "24/7", label: "Pemantauan" },
-    { value: "97%", label: "Akurasi" },
+    { value: "24/7", label: "AI Monitoring" },
+    { value: "99%", label: "IoT Uptime" },
+    { value: "80%", label: "Hemat Energi" },
     { value: "50%", label: "Hemat Air" },
-    { value: "0", label: "Human Error" },
   ];
 
   const team = [
@@ -398,9 +397,9 @@ function App() {
               lineHeight: 1.2,
             }}
           >
-            Pertanian <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Berkah</span>
+            Next Gen Hidroponik
             <br />
-            dengan Teknologi <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Amanah</span>
+            <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>AI · IoT · Renewable Energy</span>
           </h1>
 
           <p
@@ -414,7 +413,7 @@ function App() {
               lineHeight: 1.6,
             }}
           >
-            Sistem hidroponik pintar yang menggabungkan teknologi IoT & AI dengan nilai-nilai Islam untuk mengelola sumber daya dengan bijak dan meningkatkan ketahanan pangan umat.
+            Sistem hidroponik pintar bertenaga kecerdasan buatan, IoT sensor network, dan energi terbarukan. Pertanian masa depan yang efisien, berkelanjutan, dan ramah lingkungan dengan nilai-nilai amanah.
           </p>
 
           <div
@@ -545,10 +544,11 @@ function App() {
               </div>
               <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "24px", lineHeight: 1.2 }}>Pertanian Modern untuk Ketahanan Pangan</h2>
               <p style={{ color: theme.textMuted, fontSize: "18px", lineHeight: 1.6, marginBottom: "32px" }}>
-                Di tengah tantangan gagal panen, human error, dan krisis pangan global, Agri-Smart hadir sebagai solusi berbasis teknologi yang membantu petani mengelola hidroponik dengan lebih efisien dan presisi.
+                Di tengah tantangan ketahanan pangan dan krisis iklim, Agri-Smart menghadirkan solusi next generation dengan tiga pilar teknologi: AI untuk optimasi cerdas, IoT untuk presisi tinggi, dan energi terbarukan untuk
+                keberlanjutan.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {["Mengurangi human error hingga mendekati 0%", "Hemat air & nutrisi hingga 50%", "Monitoring real-time 24/7 dari mana saja", "AI memberikan rekomendasi yang mudah dipahami"].map((item, i) => (
+                {["AI prediksi hasil panen & optimasi otomatis", "IoT sensor network real-time 24/7", "80% hemat energi dengan solar power", "50% hemat air dengan smart dosing"].map((item, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div
                       style={{
@@ -723,9 +723,9 @@ function App() {
               Teknologi
             </div>
             <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
-              Komponen <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Berkualitas Tinggi</span>
+              <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>AI · IoT · Renewable Energy</span> Stack
             </h2>
-            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Menggunakan sensor industrial-grade dan mikrokontroler terpercaya untuk hasil yang akurat dan konsisten.</p>
+            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Kombinasi sempurna teknologi kecerdasan buatan, sensor IoT industrial-grade, dan sistem energi terbarukan untuk performa maksimal.</p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "16px" }}>
@@ -769,12 +769,12 @@ function App() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
             {[
-              { step: "01", title: "Sensor Membaca Data", desc: "pH, EC, suhu, dan level air dibaca real-time setiap detik tanpa henti" },
-              { step: "02", title: "ESP32 Mengolah", desc: "Data dikirim ke ESP32 dan diproses dengan algoritma filtering canggih" },
-              { step: "03", title: "Dashboard Menampilkan", desc: "Data divisualisasikan dalam grafik dan statistik yang gampang dibaca" },
-              { step: "04", title: "AI Menganalisis", desc: "Kecerdasan buatan mendeteksi masalah dan bikin rekomendasi akurat" },
-              { step: "05", title: "User Menyetujui", desc: "Sistem human-in-the-loop minta persetujuan sebelum bertindak" },
-              { step: "06", title: "Aktuator Bekerja", desc: "Pompa dan valve menjalankan dosing otomatis sesuai rekomendasi" },
+              { step: "01", title: "IoT Sensors Capture", desc: "Sensor IoT membaca pH, EC, suhu, kelembapan, dan level air secara real-time setiap detik" },
+              { step: "02", title: "Edge Processing", desc: "ESP32 mikrokontroler memproses data dengan filtering dan validasi tingkat lanjut" },
+              { step: "03", title: "Solar Power Supply", desc: "Panel surya mengisi baterai LiFePO4 untuk operasional 24/7 ramah lingkungan" },
+              { step: "04", title: "AI Analytics Engine", desc: "Machine learning model menganalisis pola data dan memprediksi kebutuhan tanaman" },
+              { step: "05", title: "Smart Automation", desc: "Sistem AI memberikan rekomendasi dan mengontrol dosing nutrisi secara otomatis" },
+              { step: "06", title: "Remote Monitoring", desc: "Dashboard mobile memvisualisasikan semua data dan kontrol dari mana saja" },
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", gap: "24px", alignItems: "flex-start" }}>
                 <div
@@ -931,7 +931,9 @@ function App() {
               </div>
 
               <p style={{ color: theme.textMuted, lineHeight: 1.6, fontSize: "15px" }}>
-                Dengan bimbingan Ustadz Aulia dan dukungan dari Habibi Garden, STEI ITB, dan PT SEI, kami mengembangkan Agri-Smart sebagai upaya nyata menuju pertanian yang lebih cerdas dan berkelanjutan.
+                Agri-Smart adalah sistem hidroponik next generation yang mengintegrasikan tiga pilar teknologi masa depan: <strong style={{ color: theme.gradientFrom }}>Artificial Intelligence (AI)</strong> untuk analisis prediktif dan
+                optimasi, <strong style={{ color: theme.gradientFrom }}>Internet of Things (IoT)</strong> untuk monitoring real-time dan kontrol presisi, serta <strong style={{ color: theme.gradientFrom }}>Renewable Energy</strong> untuk
+                operasional ramah lingkungan. Dikembangkan dengan bimbingan Ustadz Aulia dan dukungan Habibi Garden, STEI ITB, dan PT SEI.
               </p>
 
               <div style={{ paddingTop: "24px", borderTop: `1px solid ${theme.border}` }}>
