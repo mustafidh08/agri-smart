@@ -39,7 +39,7 @@ function App() {
         throw new Error("Silakan setup Google Apps Script terlebih dahulu. Lihat instruksi di console.");
       }
 
-      const response = await fetch(SCRIPT_URL, {
+      await fetch(SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
