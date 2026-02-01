@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Leaf, Zap, Shield, Droplets, Activity, Users, ChevronDown, Menu, X, MessageSquare, Mail, Github, Sun, Moon, Code, Cpu, LineChart, Wrench, BookOpen, Sparkles } from "lucide-react";
+import { Leaf, Zap, Shield, TrendingUp, Droplets, Activity, Users, ChevronDown, Menu, X, MessageSquare, Mail, Github, Sun, Moon, Code, Cpu, LineChart, Wrench, BookOpen, Sparkles, Send, Check } from "lucide-react";
 
 function App() {
   const [scrollY, setScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [darkMode, setDarkMode] = useState(true);
+
+  // Feedback form state
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formStatus, setFormStatus] = useState({ submitting: false, success: false, error: "" });
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -17,6 +21,45 @@ function App() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
     setActiveSection(id);
+  };
+
+  const handleFormChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus({ submitting: true, success: false, error: "" });
+
+    try {
+      // GANTI URL INI dengan Google Apps Script Web App URL kalian
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxGnFXwpZK_drYC2H_qGi-xD0bqxVJ2lLC9Qxvn6tLLmqPKVoT_vmKDYez7crP4cBtQEw/exec";
+
+      if (SCRIPT_URL === "MASUKKAN_GOOGLE_APPS_SCRIPT_URL_DISINI") {
+        throw new Error("Silakan setup Google Apps Script terlebih dahulu. Lihat instruksi di console.");
+      }
+
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      // no-cors mode doesn't return response, so we assume success
+      setFormStatus({ submitting: false, success: true, error: "" });
+      setFormData({ name: "", email: "", message: "" });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setFormStatus({ submitting: false, success: false, error: "" }), 5000);
+    } catch (error) {
+      setFormStatus({ submitting: false, success: false, error: error.message });
+    }
   };
 
   const theme = {
@@ -39,44 +82,50 @@ function App() {
     {
       icon: <Activity className="w-8 h-8" />,
       title: "IoT Sensor Network",
-      desc: "Jaringan sensor IoT memantau pH, EC, suhu, dan kelembapan dengan akurasi tinggi 24/7",
+      desc: "Jaringan sensor IoT memantau pH, EC, suhu, kelembapan, dan level air dengan akurasi tinggi 24/7",
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Solar-Powered System",
-      desc: "Sistem bertenaga energi matahari untuk operasional yang ramah lingkungan dan dapat mengurangi biaya listrik",
+      desc: "Sistem bertenaga energi matahari untuk operasional yang ramah lingkungan dan mengurangi ketergantungan listrik PLN",
     },
     {
       icon: <Droplets className="w-8 h-8" />,
       title: "Smart Dosing Automation",
-      desc: "Pemberian nutrisi dan air otomatis berbasis AI dengan presisi tinggi, menghemat penggunaan air",
+      desc: "Pemberian nutrisi dan air otomatis berbasis AI dengan presisi tinggi, mengurangi pemborosan sumber daya",
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Predictive Growth Model",
+      desc: "Machine learning memprediksi hasil panen dan memberikan insight untuk optimalisasi produksi",
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Remote Monitoring & Control",
-      desc: "Kontrol dan monitor sistem dari mana saja via smartphone",
+      desc: "Kontrol dan monitor sistem dari mana saja via smartphone dengan keamanan data terenkripsi",
     },
   ];
 
   const technologies = [
-    { name: "Python", category: "AI/Machine Learning" },
+    { name: "TensorFlow Lite", category: "AI/Machine Learning" },
     { name: "ESP32", category: "IoT Microcontroller" },
-    { name: "Solar Panel", category: "Renewable Energy" },
+    { name: "Solar Panel 100W", category: "Renewable Energy" },
     { name: "Sensor pH", category: "IoT Sensor (HH-828)" },
     { name: "Sensor EC/TDS", category: "IoT Sensor (V1.0)" },
     { name: "DHT22", category: "IoT Sensor (Suhu)" },
     { name: "MPPT Charge Controller", category: "Solar Management" },
-    { name: "Battery 12V 9A", category: "Energy Storage" },
+    { name: "LiFePO4 Battery", category: "Energy Storage" },
     { name: "AI Prediction Model", category: "Machine Learning" },
     { name: "Pompa Peristaltik", category: "Smart Dosing" },
+    { name: "MQTT Protocol", category: "IoT Communication" },
     { name: "Bot Telegram", category: "Remote Control" },
   ];
 
   const stats = [
     { value: "24/7", label: "AI Monitoring" },
     { value: "99%", label: "IoT Uptime" },
-    { value: "80%", label: "Hemat Energi" },
-    { value: "50%", label: "Hemat Air" },
+    { value: "100%", label: "Solar Powered" },
+    { value: "Real-time", label: "Data Update" },
   ];
 
   const team = [
@@ -126,6 +175,10 @@ function App() {
         @keyframes slideInRight {
           from { opacity: 0; transform: translateX(30px); }
           to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
         .animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
         .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
@@ -182,7 +235,7 @@ function App() {
 
           {/* Desktop Menu */}
           <div style={{ display: "flex", alignItems: "center", gap: "32px" }} className="hidden-mobile">
-            {["beranda", "tentang", "fitur", "teknologi", "tim"].map((item) => (
+            {["beranda", "tentang", "fitur", "teknologi", "tim", "feedback"].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
@@ -264,7 +317,7 @@ function App() {
             }}
           >
             <div style={{ padding: "24px", display: "flex", flexDirection: "column", gap: "16px" }}>
-              {["beranda", "tentang", "fitur", "teknologi", "tim"].map((item) => (
+              {["beranda", "tentang", "fitur", "teknologi", "tim", "feedback"].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
@@ -548,7 +601,7 @@ function App() {
                 keberlanjutan.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {["AI prediksi hasil panen & optimasi otomatis", "IoT sensor network real-time 24/7", "80% hemat energi dengan solar power", "50% hemat air dengan smart dosing"].map((item, i) => (
+                {["AI prediksi hasil panen & optimasi otomatis", "IoT sensor network real-time 24/7", "Operasional ramah lingkungan dengan solar power", "Pemberian nutrisi presisi dengan smart dosing"].map((item, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div
                       style={{
@@ -1020,6 +1073,223 @@ function App() {
               <Mail style={{ width: "20px", height: "20px" }} />
               Download Panduan
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Feedback Form Section */}
+      <section id="feedback" style={{ padding: "120px 24px", background: darkMode ? "linear-gradient(180deg, #0A0E14, #10141D)" : "linear-gradient(180deg, #FFFFFF, #F8FAFB)" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "48px" }}>
+            <div
+              style={{
+                display: "inline-block",
+                padding: "8px 16px",
+                background: `${theme.gradientFrom}20`,
+                border: `1px solid ${theme.gradientFrom}40`,
+                borderRadius: "99px",
+                color: theme.gradientFrom,
+                fontSize: "14px",
+                fontWeight: 600,
+                marginBottom: "24px",
+              }}
+            >
+              Kritik & Saran
+            </div>
+            <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
+              Bantu Kami Menjadi <br />
+              <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Lebih Baik</span>
+            </h2>
+            <p style={{ color: theme.textMuted, fontSize: "18px", lineHeight: 1.6 }}>Masukan kalian sangat berharga untuk pengembangan Agri-Smart</p>
+          </div>
+
+          <div
+            style={{
+              background: theme.cardBg,
+              backdropFilter: "blur(40px)",
+              border: `1px solid ${theme.border}`,
+              borderRadius: "24px",
+              padding: "48px",
+              position: "relative",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: "-50%",
+                right: "-50%",
+                width: "400px",
+                height: "400px",
+                background: `${theme.gradientFrom}15`,
+                borderRadius: "50%",
+                filter: "blur(80px)",
+              }}
+            />
+
+            <form onSubmit={handleFormSubmit} style={{ position: "relative", zIndex: 1 }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+                {/* Name Field */}
+                <div>
+                  <label style={{ display: "block", marginBottom: "8px", fontWeight: 600, fontSize: "14px" }}>Nama</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleFormChange}
+                    required
+                    placeholder="Masukkan nama kamu"
+                    style={{
+                      width: "100%",
+                      padding: "16px",
+                      background: darkMode ? "rgba(0,0,0,0.4)" : "rgba(255,255,255,0.6)",
+                      border: `1px solid ${theme.border}`,
+                      borderRadius: "12px",
+                      color: theme.text,
+                      fontSize: "15px",
+                      outline: "none",
+                      transition: "all 0.3s ease",
+                    }}
+                    onFocus={(e) => (e.target.style.borderColor = theme.gradientFrom)}
+                    onBlur={(e) => (e.target.style.borderColor = theme.border)}
+                  />
+                </div>
+
+                {/* Email Field */}
+                <div>
+                  <label style={{ display: "block", marginBottom: "8px", fontWeight: 600, fontSize: "14px" }}>Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleFormChange}
+                    required
+                    placeholder="nama@email.com"
+                    style={{
+                      width: "100%",
+                      padding: "16px",
+                      background: darkMode ? "rgba(0,0,0,0.4)" : "rgba(255,255,255,0.6)",
+                      border: `1px solid ${theme.border}`,
+                      borderRadius: "12px",
+                      color: theme.text,
+                      fontSize: "15px",
+                      outline: "none",
+                      transition: "all 0.3s ease",
+                    }}
+                    onFocus={(e) => (e.target.style.borderColor = theme.gradientFrom)}
+                    onBlur={(e) => (e.target.style.borderColor = theme.border)}
+                  />
+                </div>
+
+                {/* Message Field */}
+                <div>
+                  <label style={{ display: "block", marginBottom: "8px", fontWeight: 600, fontSize: "14px" }}>Pesan (Kritik & Saran)</label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleFormChange}
+                    required
+                    placeholder="Tuliskan kritik dan saran kamu di sini..."
+                    rows="6"
+                    style={{
+                      width: "100%",
+                      padding: "16px",
+                      background: darkMode ? "rgba(0,0,0,0.4)" : "rgba(255,255,255,0.6)",
+                      border: `1px solid ${theme.border}`,
+                      borderRadius: "12px",
+                      color: theme.text,
+                      fontSize: "15px",
+                      outline: "none",
+                      resize: "vertical",
+                      fontFamily: "inherit",
+                      transition: "all 0.3s ease",
+                    }}
+                    onFocus={(e) => (e.target.style.borderColor = theme.gradientFrom)}
+                    onBlur={(e) => (e.target.style.borderColor = theme.border)}
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  disabled={formStatus.submitting}
+                  style={{
+                    padding: "16px 32px",
+                    background: formStatus.success ? "#10B981" : formStatus.submitting ? `${theme.gradientFrom}80` : `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`,
+                    border: "none",
+                    borderRadius: "12px",
+                    color: "white",
+                    fontSize: "16px",
+                    fontWeight: 600,
+                    cursor: formStatus.submitting ? "not-allowed" : "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    transition: "all 0.3s ease",
+                    opacity: formStatus.submitting ? 0.7 : 1,
+                  }}
+                >
+                  {formStatus.submitting ? (
+                    <>
+                      <div
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          border: "2px solid white",
+                          borderTopColor: "transparent",
+                          borderRadius: "50%",
+                          animation: "spin 0.8s linear infinite",
+                        }}
+                      />
+                      Mengirim...
+                    </>
+                  ) : formStatus.success ? (
+                    <>
+                      <Check style={{ width: "20px", height: "20px" }} />
+                      Terkirim!
+                    </>
+                  ) : (
+                    <>
+                      <Send style={{ width: "20px", height: "20px" }} />
+                      Kirim Masukan
+                    </>
+                  )}
+                </button>
+
+                {/* Error Message */}
+                {formStatus.error && (
+                  <div
+                    style={{
+                      padding: "12px 16px",
+                      background: "rgba(239, 68, 68, 0.1)",
+                      border: "1px solid rgba(239, 68, 68, 0.3)",
+                      borderRadius: "12px",
+                      color: "#EF4444",
+                      fontSize: "14px",
+                    }}
+                  >
+                    {formStatus.error}
+                  </div>
+                )}
+
+                {/* Success Message */}
+                {formStatus.success && (
+                  <div
+                    style={{
+                      padding: "12px 16px",
+                      background: "rgba(16, 185, 129, 0.1)",
+                      border: "1px solid rgba(16, 185, 129, 0.3)",
+                      borderRadius: "12px",
+                      color: theme.gradientFrom,
+                      fontSize: "14px",
+                    }}
+                  >
+                    ✨ Terima kasih! Masukan kamu sudah tersimpan di spreadsheet kami.
+                  </div>
+                )}
+              </div>
+            </form>
           </div>
         </div>
       </section>

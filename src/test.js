@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Leaf, Zap, Shield, TrendingUp, Droplets, Activity, Users, ChevronDown, Menu, X, MessageSquare, Mail, Github, Sun, Moon } from "lucide-react";
+import { Leaf, Zap, Shield, Droplets, Activity, Users, ChevronDown, Menu, X, MessageSquare, Mail, Github, Sun, Moon, Code, Cpu, LineChart, Wrench, BookOpen, Sparkles } from "lucide-react";
 
-export default function AgriSmartWebsite() {
+function App() {
   const [scrollY, setScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("beranda");
+  const [activeSection, setActiveSection] = useState("home");
   const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
@@ -32,91 +32,60 @@ export default function AgriSmartWebsite() {
 
   const features = [
     {
+      icon: <Cpu className="w-8 h-8" />,
+      title: "AI-Powered Analytics",
+      desc: "Kecerdasan buatan menganalisis data sensor dan memberikan rekomendasi optimasi pertumbuhan tanaman secara real-time",
+    },
+    {
       icon: <Activity className="w-8 h-8" />,
-      title: "Monitoring Real-Time",
-      desc: "Pantau pH, EC, suhu, dan level air secara langsung setiap detik dengan sistem yang amanah dan teliti",
+      title: "IoT Sensor Network",
+      desc: "Jaringan sensor IoT memantau pH, EC, suhu, dan kelembapan dengan akurasi tinggi 24/7",
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Analisis AI Cerdas",
-      desc: "Memanfaatkan teknologi kecerdasan buatan sebagai alat bantu dalam mengambil keputusan terbaik",
-    },
-    {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Kontrol Penuh di Tangan",
-      desc: "Sistem semi-otomatis yang menempatkan manusia sebagai pengambil keputusan utama",
+      title: "Solar-Powered System",
+      desc: "Sistem bertenaga energi matahari untuk operasional yang ramah lingkungan dan dapat mengurangi biaya listrik",
     },
     {
       icon: <Droplets className="w-8 h-8" />,
-      title: "Dosing Presisi",
-      desc: "Pemberian nutrisi dan air yang efisien, mencegah pemborosan sumber daya",
+      title: "Smart Dosing Automation",
+      desc: "Pemberian nutrisi dan air otomatis berbasis AI dengan presisi tinggi, menghemat penggunaan air",
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: "Analitik Lengkap",
-      desc: "Visualisasi data komprehensif untuk evaluasi dan perbaikan berkelanjutan",
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "Mudah Digunakan",
-      desc: "Interface yang ramah untuk semua kalangan, dari pemula hingga ahli",
+      icon: <Shield className="w-8 h-8" />,
+      title: "Remote Monitoring & Control",
+      desc: "Kontrol dan monitor sistem dari mana saja via smartphone",
     },
   ];
 
   const technologies = [
-    { name: "ESP32", category: "Mikrokontroler" },
-    { name: "Sensor pH", category: "HH-828" },
-    { name: "Sensor EC", category: "TDS V1.0" },
-    { name: "Kran Otomatis", category: "Pengisi Air" },
-    { name: "DHT22", category: "Suhu & Kelembapan" },
-    { name: "Pompa Peristaltik", category: "Dosing Otomatis" },
-    { name: "Bot Telegram", category: "Kontrol Hidroponik" },
+    { name: "Python", category: "AI/Machine Learning" },
+    { name: "ESP32", category: "IoT Microcontroller" },
+    { name: "Solar Panel", category: "Renewable Energy" },
+    { name: "Sensor pH", category: "IoT Sensor (HH-828)" },
+    { name: "Sensor EC/TDS", category: "IoT Sensor (V1.0)" },
+    { name: "DHT22", category: "IoT Sensor (Suhu)" },
+    { name: "MPPT Charge Controller", category: "Solar Management" },
+    { name: "Battery 12V 9A", category: "Energy Storage" },
+    { name: "AI Prediction Model", category: "Machine Learning" },
+    { name: "Pompa Peristaltik", category: "Smart Dosing" },
+    { name: "Bot Telegram", category: "Remote Control" },
   ];
 
   const stats = [
-    { value: "24/7", label: "Pemantauan" },
-    { value: "97%", label: "Akurasi" },
+    { value: "24/7", label: "AI Monitoring" },
+    { value: "99%", label: "IoT Uptime" },
+    { value: "80%", label: "Hemat Energi" },
     { value: "50%", label: "Hemat Air" },
-    { value: "0", label: "Human Error" },
   ];
 
   const team = [
-    {
-      name: "M. Azzam Mustafidh",
-      role: "Project Leader",
-      initial: "AM",
-      desc: "Memimpin pengembangan proyek Agri Smart",
-    },
-    {
-      name: "Imam Daffa",
-      role: "IoT Engineer",
-      initial: "ID",
-      desc: "Mengembangkan hardware & software",
-    },
-    {
-      name: "Ihsan Aviandy",
-      role: "Documentation",
-      initial: "IA",
-      desc: "Mendokumentasikan perjalanan TDA & projek",
-    },
-    {
-      name: "Rifat Zaidan",
-      role: "Programmer Assistant",
-      initial: "RZ",
-      desc: "Membantu project leader & IoT engineer",
-    },
-    {
-      name: "Reinevi Abil",
-      role: "Designer",
-      initial: "RA",
-      desc: "Membuat kebutuhan desain",
-    },
-    {
-      name: "Muhammad Dzulfiqar",
-      role: "Logistic",
-      initial: "MD",
-      desc: "Bertanggung jawab atas kebutuhan logistik",
-    },
+    { name: "M. Azzam Mustafidh", role: "Project Leader", icon: <Cpu className="w-6 h-6" />, desc: "Memimpin pengembangan proyek Agri Smart" },
+    { name: "Imam Daffa", role: "IoT Engineer", icon: <Code className="w-6 h-6" />, desc: "Mengembangkan hardware & software" },
+    { name: "Ihsan Aviandy", role: "Documentation", icon: <Sparkles className="w-6 h-6" />, desc: "Mendokumentasikan perjalanan TDA & projek" },
+    { name: "Rifat Zaidan", role: "Programmer Assistant", icon: <LineChart className="w-6 h-6" />, desc: "Membantu project leader & IoT engineer" },
+    { name: "Reinevi Abil", role: "Designer", icon: <Wrench className="w-6 h-6" />, desc: "Membuat kebutuhan desain" },
+    { name: "Muhammad Dzulfiqar", role: "Logistic", icon: <BookOpen className="w-6 h-6" />, desc: "Bertanggung jawab atas kebutuhan logistik" },
   ];
 
   return (
@@ -342,7 +311,7 @@ export default function AgriSmartWebsite() {
         id="beranda"
         style={{
           position: "relative",
-          minHeight: "100vh",
+          minHeight: "80vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -428,9 +397,9 @@ export default function AgriSmartWebsite() {
               lineHeight: 1.2,
             }}
           >
-            Pertanian <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Berkah</span>
+            Next Gen Hidroponik
             <br />
-            dengan Teknologi Amanah
+            <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>AI · IoT · Renewable Energy</span>
           </h1>
 
           <p
@@ -444,7 +413,7 @@ export default function AgriSmartWebsite() {
               lineHeight: 1.6,
             }}
           >
-            Sistem hidroponik pintar yang menggabungkan teknologi IoT & AI dengan nilai-nilai Islam untuk mengelola sumber daya dengan bijaksana dan meningkatkan ketahanan pangan umat.
+            Sistem hidroponik pintar bertenaga kecerdasan buatan, IoT sensor network, dan energi terbarukan. Pertanian masa depan yang efisien, berkelanjutan, dan ramah lingkungan dengan nilai-nilai amanah.
           </p>
 
           <div
@@ -531,10 +500,10 @@ export default function AgriSmartWebsite() {
       </section>
 
       {/* Stats Section */}
-      <section className="animate-fadeIn" style={{ padding: "80px 24px", borderTop: `1px solid ${theme.border}`, borderBottom: `1px solid ${theme.border}` }}>
+      <section style={{ padding: "80px 24px", borderTop: `1px solid ${theme.border}`, borderBottom: `1px solid ${theme.border}` }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "32px" }}>
           {stats.map((stat, i) => (
-            <div key={i} className={`animate-scaleIn stagger-${i + 1}`} style={{ textAlign: "center" }}>
+            <div key={i} style={{ textAlign: "center" }}>
               <div
                 style={{
                   fontSize: "clamp(36px, 6vw, 48px)",
@@ -554,10 +523,10 @@ export default function AgriSmartWebsite() {
       </section>
 
       {/* About Section */}
-      <section id="tentang" className="animate-fadeIn" style={{ padding: "120px 24px" }}>
+      <section id="tentang" style={{ padding: "120px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "64px", alignItems: "center" }}>
-            <div className="animate-slideInLeft">
+            <div>
               <div
                 style={{
                   display: "inline-block",
@@ -571,21 +540,16 @@ export default function AgriSmartWebsite() {
                   marginBottom: "24px",
                 }}
               >
-                Ikhtiar Menuju Ketahanan Pangan
+                Masalah yang Kami Selesaikan
               </div>
-              <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "24px", lineHeight: 1.2 }}>Teknologi sebagai Amanah untuk Keberkahan Pangan</h2>
+              <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "24px", lineHeight: 1.2 }}>Pertanian Modern untuk Ketahanan Pangan</h2>
               <p style={{ color: theme.textMuted, fontSize: "18px", lineHeight: 1.6, marginBottom: "32px" }}>
-                Di tengah tantangan gagal panen dan krisis pangan global, Agri-Smart hadir sebagai ikhtiar berbasis teknologi yang membantu mengelola hidroponik dengan prinsip efisiensi, kehati-hatian, dan tanggung jawab atas sumber daya
-                yang Allah SWT amanahkan.
+                Di tengah tantangan ketahanan pangan dan krisis iklim, Agri-Smart menghadirkan solusi next generation dengan tiga pilar teknologi: AI untuk optimasi cerdas, IoT untuk presisi tinggi, dan energi terbarukan untuk
+                keberlanjutan.
               </p>
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-                {[
-                  "Mengurangi kesalahan manusia hingga mendekati 0%",
-                  "Efisiensi air & nutrisi hingga 50% sesuai prinsip tidak berlebihan",
-                  "Monitoring amanah 24/7 dengan sistem yang terpercaya",
-                  "AI sebagai alat bantu, manusia tetap pengambil keputusan",
-                ].map((item, i) => (
-                  <div key={i} className={`animate-slideInLeft stagger-${i + 1}`} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                {["AI prediksi hasil panen & optimasi otomatis", "IoT sensor network real-time 24/7", "80% hemat energi dengan solar power", "50% hemat air dengan smart dosing"].map((item, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                     <div
                       style={{
                         width: "24px",
@@ -606,7 +570,7 @@ export default function AgriSmartWebsite() {
               </div>
             </div>
 
-            <div className="animate-slideInRight" style={{ position: "relative" }}>
+            <div style={{ position: "relative" }}>
               <div
                 style={{
                   position: "absolute",
@@ -664,7 +628,7 @@ export default function AgriSmartWebsite() {
       </section>
 
       {/* Features Section */}
-      <section id="fitur" className="animate-fadeIn" style={{ padding: "120px 24px", background: darkMode ? "linear-gradient(180deg, #0A0E14, #10141D)" : "linear-gradient(180deg, #FFFFFF, #F8FAFB)" }}>
+      <section id="fitur" style={{ padding: "120px 24px", background: darkMode ? "linear-gradient(180deg, #0A0E14, #10141D)" : "linear-gradient(180deg, #FFFFFF, #F8FAFB)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <div
@@ -683,19 +647,16 @@ export default function AgriSmartWebsite() {
               Fitur Unggulan
             </div>
             <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
-              Teknologi yang Membawa <br />
-              <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Manfaat Nyata</span>
+              Teknologi yang Bikin <br />
+              <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Perbedaan Nyata</span>
             </h2>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px", justifyItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
             {features.map((feature, i) => (
               <div
                 key={i}
-                className={`animate-scaleIn stagger-${(i % 3) + 1}`}
                 style={{
-                  width: "100%",
-                  maxWidth: "380px",
                   position: "relative",
                   background: theme.cardBg,
                   backdropFilter: "blur(40px)",
@@ -708,7 +669,7 @@ export default function AgriSmartWebsite() {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.background = darkMode ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.02)";
                   e.currentTarget.style.borderColor = `${theme.gradientFrom}80`;
-                  e.currentTarget.style.transform = "translateY(-8px)";
+                  e.currentTarget.style.transform = "translateY(-4px)";
                   e.currentTarget.style.boxShadow = `0 20px 60px ${theme.gradientFrom}30`;
                 }}
                 onMouseLeave={(e) => {
@@ -743,7 +704,7 @@ export default function AgriSmartWebsite() {
       </section>
 
       {/* Technology Section */}
-      <section id="teknologi" className="animate-fadeIn" style={{ padding: "120px 24px" }}>
+      <section id="teknologi" style={{ padding: "120px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <div
@@ -762,19 +723,16 @@ export default function AgriSmartWebsite() {
               Teknologi
             </div>
             <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
-              Komponen <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Berkualitas Tinggi</span>
+              <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>AI · IoT · Renewable Energy</span> Stack
             </h2>
-            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Menggunakan komponen terpercaya untuk hasil yang akurat dan konsisten</p>
+            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "600px", margin: "0 auto" }}>Kombinasi sempurna teknologi kecerdasan buatan, sensor IoT industrial-grade, dan sistem energi terbarukan untuk performa maksimal.</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "16px", justifyItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "16px" }}>
             {technologies.map((tech, i) => (
               <div
                 key={i}
-                className={`animate-scaleIn stagger-${(i % 4) + 1}`}
                 style={{
-                  width: "100%",
-                  maxWidth: "200px",
                   background: theme.cardBg,
                   backdropFilter: "blur(40px)",
                   border: `1px solid ${theme.border}`,
@@ -801,7 +759,7 @@ export default function AgriSmartWebsite() {
       </section>
 
       {/* How It Works */}
-      <section className="animate-fadeIn" style={{ padding: "120px 24px", background: darkMode ? "linear-gradient(180deg, #0A0E14, #10141D)" : "linear-gradient(180deg, #FFFFFF, #F8FAFB)" }}>
+      <section style={{ padding: "120px 24px", background: darkMode ? "linear-gradient(180deg, #0A0E14, #10141D)" : "linear-gradient(180deg, #FFFFFF, #F8FAFB)" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
@@ -811,14 +769,14 @@ export default function AgriSmartWebsite() {
 
           <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
             {[
-              { step: "01", title: "Sensor Membaca Data", desc: "pH, EC, suhu, dan level air dipantau dengan teliti setiap detik" },
-              { step: "02", title: "ESP32 Mengolah", desc: "Data diproses dengan algoritma yang cermat dan akurat" },
-              { step: "03", title: "Dashboard Menampilkan", desc: "Visualisasi data yang jelas dan mudah dipahami" },
-              { step: "04", title: "AI Menganalisis", desc: "Sistem AI memberikan rekomendasi berdasarkan data" },
-              { step: "05", title: "User Memutuskan", desc: "Manusia tetap sebagai pengambil keputusan akhir" },
-              { step: "06", title: "Aktuator Bekerja", desc: "Sistem menjalankan perintah dengan presisi tinggi" },
+              { step: "01", title: "IoT Sensors Capture", desc: "Sensor IoT membaca pH, EC, suhu, kelembapan, dan level air secara real-time setiap detik" },
+              { step: "02", title: "Edge Processing", desc: "ESP32 mikrokontroler memproses data dengan filtering dan validasi tingkat lanjut" },
+              { step: "03", title: "Solar Power Supply", desc: "Panel surya mengisi baterai LiFePO4 untuk operasional 24/7 ramah lingkungan" },
+              { step: "04", title: "AI Analytics Engine", desc: "Machine learning model menganalisis pola data dan memprediksi kebutuhan tanaman" },
+              { step: "05", title: "Smart Automation", desc: "Sistem AI memberikan rekomendasi dan mengontrol dosing nutrisi secara otomatis" },
+              { step: "06", title: "Remote Monitoring", desc: "Dashboard mobile memvisualisasikan semua data dan kontrol dari mana saja" },
             ].map((item, i) => (
-              <div key={i} className={`animate-slideInLeft stagger-${(i % 3) + 1}`} style={{ display: "flex", gap: "24px", alignItems: "flex-start" }}>
+              <div key={i} style={{ display: "flex", gap: "24px", alignItems: "flex-start" }}>
                 <div
                   style={{
                     flexShrink: 0,
@@ -859,7 +817,7 @@ export default function AgriSmartWebsite() {
       </section>
 
       {/* Team Section */}
-      <section id="tim" className="animate-fadeIn" style={{ padding: "120px 24px" }}>
+      <section id="tim" style={{ padding: "120px 24px" }}>
         <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <div
@@ -880,17 +838,14 @@ export default function AgriSmartWebsite() {
             <h2 style={{ fontSize: "clamp(32px, 5vw, 40px)", fontWeight: 800, marginBottom: "16px" }}>
               Kelompok <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Al-Jazari</span>
             </h2>
-            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "700px", margin: "0 auto" }}>Tim TDA (Tadabbur Dream Adventure) dari Sekolah Impian yang berikhtiar untuk ketahanan pangan</p>
+            <p style={{ color: theme.textMuted, fontSize: "18px", maxWidth: "700px", margin: "0 auto" }}>Dikembangkan oleh tim TDA (Tadabbur Dream Adventure) dari Sekolah Impian sebagai kontribusi nyata untuk ketahanan pangan nasional.</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginBottom: "64px", justifyItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px", marginBottom: "64px" }}>
             {team.map((member, i) => (
               <div
                 key={i}
-                className={`animate-scaleIn stagger-${(i % 3) + 1}`}
                 style={{
-                  width: "100%",
-                  maxWidth: "320px",
                   background: theme.cardBg,
                   backdropFilter: "blur(40px)",
                   border: `1px solid ${theme.border}`,
@@ -914,20 +869,17 @@ export default function AgriSmartWebsite() {
                   style={{
                     width: "80px",
                     height: "80px",
-                    background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`,
+                    background: `linear-gradient(135deg, ${theme.gradientFrom}20, ${theme.gradientTo}20)`,
                     borderRadius: "50%",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     margin: "0 auto 20px",
-                    color: "white",
-                    fontSize: "24px",
-                    fontWeight: 700,
+                    color: theme.gradientFrom,
                     border: `2px solid ${theme.gradientFrom}40`,
-                    boxShadow: `0 8px 24px ${theme.gradientFrom}40`,
                   }}
                 >
-                  {member.initial}
+                  {member.icon}
                 </div>
                 <h3 style={{ fontSize: "18px", fontWeight: 700, marginBottom: "4px" }}>{member.name}</h3>
                 <div
@@ -979,7 +931,9 @@ export default function AgriSmartWebsite() {
               </div>
 
               <p style={{ color: theme.textMuted, lineHeight: 1.6, fontSize: "15px" }}>
-                Dengan bimbingan Ustadz Aulia dan dukungan dari Habibi Garden, STEI ITB, serta PT SEI, kami berikhtiar mengembangkan Agri-Smart sebagai kontribusi nyata menuju pertanian yang lebih berkah dan berkelanjutan.
+                Agri-Smart adalah sistem hidroponik next generation yang mengintegrasikan tiga pilar teknologi masa depan: <strong style={{ color: theme.gradientFrom }}>Artificial Intelligence (AI)</strong> untuk analisis prediktif dan
+                optimasi, <strong style={{ color: theme.gradientFrom }}>Internet of Things (IoT)</strong> untuk monitoring real-time dan kontrol presisi, serta <strong style={{ color: theme.gradientFrom }}>Renewable Energy</strong> untuk
+                operasional ramah lingkungan. Dikembangkan dengan bimbingan Ustadz Aulia dan dukungan Habibi Garden, STEI ITB, dan PT SEI.
               </p>
 
               <div style={{ paddingTop: "24px", borderTop: `1px solid ${theme.border}` }}>
@@ -994,7 +948,7 @@ export default function AgriSmartWebsite() {
       </section>
 
       {/* CTA Section */}
-      <section className="animate-fadeIn" style={{ padding: "120px 24px", position: "relative", overflow: "hidden" }}>
+      <section style={{ padding: "120px 24px", position: "relative", overflow: "hidden" }}>
         <div
           style={{
             position: "absolute",
@@ -1006,15 +960,15 @@ export default function AgriSmartWebsite() {
 
         <div style={{ position: "relative", maxWidth: "1000px", margin: "0 auto", textAlign: "center" }}>
           <h2 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: 800, marginBottom: "24px" }}>
-            Mari Bersama Membangun <br />
-            <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Pertanian yang Berkah</span>
+            Yuk, Bareng-Bareng Bangun <br />
+            <span style={{ background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Pertanian Masa Depan</span>
           </h2>
           <p style={{ fontSize: "20px", color: theme.textMuted, marginBottom: "48px", maxWidth: "700px", margin: "0 auto 48px" }}>
             Bergabunglah dalam ikhtiar transformasi pertanian Indonesia menuju sistem yang lebih efisien, amanah, dan berkelanjutan.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", justifyContent: "center" }}>
             <button
-              onClick={() => window.open("https://t.me/yourusername", "_blank")}
+              onClick={() => window.open("https://wa.me/6285250860859", "_blank")}
               style={{
                 padding: "16px 32px",
                 background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`,
@@ -1160,3 +1114,5 @@ export default function AgriSmartWebsite() {
     </div>
   );
 }
+
+export default App;
