@@ -255,6 +255,7 @@ function App() {
             ))}
             <button
               onClick={() => setDarkMode(!darkMode)}
+              aria-label={darkMode ? "Ganti ke mode terang" : "Ganti ke mode gelap"}
               style={{
                 width: "40px",
                 height: "40px",
@@ -272,6 +273,8 @@ function App() {
               {darkMode ? <Sun style={{ width: "20px", height: "20px", color: theme.text }} /> : <Moon style={{ width: "20px", height: "20px", color: theme.text }} />}
             </button>
             <button
+              onClick={() => scrollToSection("fitur")}
+              aria-label="Mulai sekarang, jelajahi fitur Agri-Smart"
               style={{
                 padding: "10px 24px",
                 background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`,
@@ -302,7 +305,13 @@ function App() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setMenuOpen(!menuOpen)} style={{ background: "none", border: "none", cursor: "pointer", color: theme.text }} className="show-mobile">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Tutup menu navigasi" : "Buka menu navigasi"}
+            aria-expanded={menuOpen}
+            style={{ background: "none", border: "none", cursor: "pointer", color: theme.text }}
+            className="show-mobile"
+          >
             {menuOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -520,6 +529,8 @@ function App() {
                 />
               </button>
               <button
+                onClick={() => scrollToSection("teknologi")}
+                aria-label="Lihat demo teknologi Agri-Smart"
                 style={{
                   padding: "16px 32px",
                   background: theme.cardBg,
@@ -1323,6 +1334,7 @@ function App() {
             <div style={{ display: "flex", gap: "16px" }}>
               <button
                 onClick={() => window.open("https://github.com/mustafidh08/agri-smart", "_blank")}
+                aria-label="Kunjungi repositori GitHub Agri-Smart"
                 style={{
                   width: "40px",
                   height: "40px",
@@ -1351,6 +1363,7 @@ function App() {
               </button>
               <button
                 onClick={() => (window.location.href = "mailto:azzammustafidh@gmail.com")}
+                aria-label="Kirim email ke tim pengembang Agri-Smart"
                 style={{
                   width: "40px",
                   height: "40px",

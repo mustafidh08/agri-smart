@@ -1,0 +1,20 @@
+# Agri-Smart
+> Agri-Smart adalah sistem hidroponik pintar berbasis Internet of Things (IoT) dan Artificial Intelligence (AI) yang dirancang untuk mentransformasi pertanian Indonesia melalui otomasi presisi dan pemantauan real-time.
+
+Agri-Smart mengintegrasikan sensor pH, TDS/EC, suhu air, kelembaban, dan intensitas cahaya dengan mikrokontroler ESP32 serta platform cloud & machine learning untuk memberikan rekomendasi nutrisi otomatis, peringatan dini anomali tanaman, dan efisiensi air hingga 90%.
+
+## Informasi Utama
+
+- [Beranda](https://agri-smart-kappa.vercel.app/#beranda): Halaman utama dan pengenalan visi Agri-Smart.
+- [Tentang Sistem](https://agri-smart-kappa.vercel.app/#tentang): Latar belakang, filosofi keberlanjutan, dan urgensi modernisasi pertanian presisi.
+- [Fitur Unggulan](https://agri-smart-kappa.vercel.app/#fitur): Monitoring sensor real-time, otomasi nutrisi otomatis, deteksi penyakit daun AI, dan dashboard analitik.
+- [Arsitektur Teknologi](https://agri-smart-kappa.vercel.app/#teknologi): Komponen hardware ESP32, sensor industri, MQTT/HTTP API, dan model machine learning.
+- [Tim Pengembang](https://agri-smart-kappa.vercel.app/#tim): Profil tim pengembang Kelompok Al-Jazari dari Sekolah Impian.
+- [Kontak & Masukan](https://agri-smart-kappa.vercel.app/#feedback): Formulir feedback interaktif dan kanal komunikasi langsung.
+
+## Spesifikasi Teknis
+
+- Mikrokontroler: ESP32 Dual Core Wi-Fi & Bluetooth
+- Sensor: Sensor pH tanah/larutan, TDS meter, DHT22/DS18B20 suhu & kelembaban, LDR/BH1750 intensitas cahaya
+- Frontend: Single Page Application berbasis React dengan antarmuka responsif dark/light mode
+- AI Core: Computer Vision untuk klasifikasi kesehatan daun dan analisis prediksi konsumsi nutrisi tanaman
