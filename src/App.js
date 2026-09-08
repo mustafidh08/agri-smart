@@ -142,8 +142,8 @@ function App() {
       style={{
         background: theme.bg,
         color: theme.text,
-        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-        letterSpacing: "-0.08em",
+        fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+        letterSpacing: "-0.02em",
         transition: "background 0.3s ease, color 0.3s ease",
       }}
     >
@@ -179,6 +179,14 @@ function App() {
         @keyframes spin {
           from { transform: rotate(0deg); }
           to { transform: rotate(360deg); }
+        }
+        @keyframes heroSlideUp {
+          from { transform: translateY(12px); }
+          to { transform: translateY(0); }
+        }
+        .hero-title {
+          animation: heroSlideUp 0.3s ease-out forwards;
+          opacity: 1;
         }
         .animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
         .animate-fadeIn { animation: fadeIn 0.8s ease-out forwards; }
@@ -451,7 +459,7 @@ function App() {
           </div>
 
           <h1
-            className="animate-fadeInUp"
+            className="hero-title"
             style={{
               fontSize: "clamp(36px, 8vw, 56px)",
               fontWeight: 800,
